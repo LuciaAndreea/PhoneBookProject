@@ -19,6 +19,16 @@
     <tr th:if="${contacte.empty}">
         <td colspan="5"> No contacts available! </td>
     </tr>
+
+    <tr th:each="contact : ${contacte}">
+        <td><span th:text="${contact.id}"> Id </span></td>
+        <td><span th:text="${contact.name}"> Name </span></td>
+        <td><span th:text="${contact.surname}"> Surname </span></td>
+        <td><span th:text="${contact.phoneNumber}"> Phone Number </span></td>
+        <td><span th:text="${contact.email}"> Email </span></td>
+        <td><a th:href="'http://localhost/deleteContact/' + ${contact.id}"> Delete </a></td>
+    </tr>
+
     </tbody>
 </table>
 </body>
