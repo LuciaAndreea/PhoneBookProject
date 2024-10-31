@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>PhoneBook Contacts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Phone Number </th>
+        <th> Email </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${contacte.empty}">
+        <td colspan="5"> No contacts available! </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
