@@ -35,4 +35,24 @@ public class ContactRepository {
 
         return contactList;
     }
+
+    public void addContact(Contact newContact) {
+        try(Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)){
+            System.out.println("Connected to PostgreSQL database!");
+            System.out.println("Prepare statement");
+
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO contacts(name,surname,phoneNumber,email) VALUES(?,?,?,?)");
+            statement.setString(1, newContact.getName());
+            statement.setString(2, newContact.getSurname());
+            statement.setString(3, newContact.getPhoneNumber());
+            statement.setString(4, newContact.getEmail());
+
+            statement.execute();
+            System.out.println("Insert executed succesfully");
+        }
+        catch (SQLException e){
+            System.out.println("Connection failure");
+            e.printStackTrace();
+        }
+    }
 }
