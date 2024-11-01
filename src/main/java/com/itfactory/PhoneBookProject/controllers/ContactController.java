@@ -38,8 +38,7 @@ public class ContactController {
     }
 
     @GetMapping("/deleteContact/{id}")
-    public RedirectView deteleContact(@PathVariable(name = "id") int id,
-                                      @PathVariable(name = "name") String name){
+    public RedirectView deteleContact(@PathVariable(name = "id") int id){
         contactRepo.deleteContact(id);
         return new RedirectView("http://localhost/contacts");
     }
