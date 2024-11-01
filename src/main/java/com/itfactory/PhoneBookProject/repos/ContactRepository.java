@@ -55,4 +55,19 @@ public class ContactRepository {
             e.printStackTrace();
         }
     }
+
+    public void deleteContact(int id) {
+        try(Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)){
+
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM contacts WHERE ID=?");
+            statement.setInt(1,id);
+
+            statement.execute();
+
+        }
+        catch (SQLException e){
+            System.out.println("Connection failure");
+            e.printStackTrace();
+        }
+    }
 }
